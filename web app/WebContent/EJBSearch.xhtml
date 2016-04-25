@@ -1,0 +1,63 @@
+<!-- This file contains a form with fields to search the database. -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<style type="text/css">
+body {
+    background-color: #ccffff;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+p {
+    font-family: "Times New Roman";
+    font-size: 20px;
+}
+
+.back {
+	background-color: blue;
+}
+		</style>
+		<title>EJB Search</title>
+</h:head>
+ 
+<h:body>
+<h:form> 
+	<p>Enter the details and click submit to search.</p>
+	<h:panelGrid>
+	Last Name:
+	<p:inputText id="lastName" 
+				 value= "#{studentbean.sfield.lastName}">
+	</p:inputText>
+	
+	First Name:
+	<p:inputText id="firstName" 
+				 value= "#{studentbean.sfield.firstName}">
+	</p:inputText>
+	
+	City:
+	<p:inputText id="city" 
+				 value= "#{studentbean.sfield.city}">
+	</p:inputText>
+	
+	State:
+	<p:inputText id="state" 
+				 value= "#{studentbean.sfield.state}">
+	</p:inputText>
+	</h:panelGrid>
+	
+	
+		<p:commandButton value="Submit" type="submit" action="#{studentbean.CustomQuery}" ajax="false"></p:commandButton>
+		<p:commandButton value="Cancel" type="reset" ajax="false"></p:commandButton>
+		
+</h:form>
+</h:body> 
+</html>

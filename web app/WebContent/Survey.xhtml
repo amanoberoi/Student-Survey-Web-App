@@ -1,0 +1,225 @@
+<!-- This is the survey form that contains all the required fields with necessary validations 
+and two command buttons. Additional ajax code for ZIP -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<style type="text/css">
+body {
+    background-color: #ccffff;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+p {
+    font-family: "Times New Roman";
+    font-size: 20px;
+}
+
+.back {
+	background-color: blue;
+}
+		</style>
+		<title>Survey Form</title>
+	</h:head>
+	<h:body>
+		<h:form id="form">
+			<h1>Survey Form</h1>
+			<p>Please fill the required details and then click submit.</p>
+			<h:panelGrid columns="3">
+				First Name*:
+				<p:inputText value="#{studentbean.s.firstName}"
+							 id="firstName" 
+							 required="true"
+						     requiredMessage="First name is a required field."
+						     validatorMessage="Name should contain only alphabets. Max length: 15 characters">
+				<f:validateRegex pattern="^[a-zA-Z]{1,15}$"/>
+				</p:inputText>
+				<p:message for="firstName"></p:message>		
+				
+				Last Name*:
+				<p:inputText value="#{studentbean.s.lastName}" 
+						 id="lastName" required="true"
+						 requiredMessage="Last name is a required field."
+						 validatorMessage="Name should contain only alphabets. Max length: 15 characters">
+				<f:validateRegex pattern="^[a-zA-Z]{1,15}$"/>
+				</p:inputText>
+				<p:message for="lastName"></p:message>
+				
+				Street Address*:				
+				<p:inputText value="#{studentbean.s.streetAddress}" 
+						 id="streetAddress" required="true"
+						 requiredMessage="Street Address is a required field."
+						 validatorMessage="Address should contain only appropriate numeric, alphabet, or alphanumeric characters. Max length: 30 characters">
+				<f:validateRegex pattern="^[a-zA-Z0-9\s#,]{1,30}$"/>
+				</p:inputText>
+				<p:message for="streetAddress"></p:message>
+				
+				City*:
+				<p:inputText value="#{studentbean.s.city}" 
+						 id="city" required="true"
+						 requiredMessage="City is a required field.">
+				</p:inputText>
+				<p:message for="city"/>
+				
+				State*:
+				<p:inputText value="#{studentbean.s.state}" 
+						 id="state" required="true"
+						 requiredMessage="State is a required field.">
+				</p:inputText>
+				<p:message for="state"/>
+				
+				ZIP*:
+				<p:inputText value="#{studentbean.s.zip}" 
+						 id="zip" required="true"
+						 requiredMessage="ZIP is a required field."
+						 validatorMessage="ZIPcode should be exactly 5 digits. ">
+				<f:ajax event="keyup" render="city state"></f:ajax>
+				<f:validateRegex pattern="^[\d]{5}$"></f:validateRegex>
+				</p:inputText>
+				<p:message for="zip"></p:message>
+				
+				Contact Number*:
+				<p:inputMask mask="(999) 999-9999" 
+						 value="#{studentbean.s.contactNumber}"
+						 id="contactNumber" required="true"
+						 requiredMessage="Contact Number is a required field."
+						 validatorMessage="Telephone number should have the following pattern: (xxx) xxx-xxxx.">
+				</p:inputMask>
+				<p:message for="contactNumber"></p:message>
+				
+				Email*:
+				<p:inputText value="#{studentbean.s.email}"
+						 id="email" required="true"
+						 requiredMessage="Email Address is a required field."
+						 validatorMessage="Not a valid email.">
+				<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+				</p:inputText>
+				<p:message for="email"></p:message>
+				
+				Emergency Contact Name*:
+				<p:inputText value="#{studentbean.s.eName1}"
+							 id="ename1" required="true"
+							 requiredMessage="Emergency contact Name is a required field">
+				</p:inputText>
+				<p:message for="ename1"></p:message>
+				
+				Emergency Contact Number*:
+				<p:inputMask mask="(999) 999-9999"
+							 value="#{studentbean.s.eNo1}"
+							 id="eno1" required="true"
+							 requiredMessage="Emergency contact Number is a required field">
+				</p:inputMask>
+				<p:message for="eno1"></p:message>
+				
+				Emergency Contact Email Id*:
+				<p:inputText value="#{studentbean.s.eId1}"
+							 id="eid1" required="true"
+							 requiredMessage="Emergency contact Email Id is a required field">
+				</p:inputText>
+				<p:message for="eid1"></p:message>
+				
+				
+				
+				Date Of Survey*:
+				<p:calendar value="#{studentbean.s.dateOfSurvey}"
+						 id="dateOfSurvey" required="true"
+						 requiredMessage="Date Of Survey is a required field.">
+				</p:calendar>
+				<p:message for="dateOfSurvey"></p:message>
+				
+				Semester Start Date*:
+				<p:calendar value="#{studentbean.s.startDate}"
+						 id="startDate" required="true"
+						 requiredMessage="Start Date is a required field.">
+				</p:calendar>
+				<p:message for="startDate"></p:message>
+				
+			</h:panelGrid>
+			
+			<h:panelGrid columns="2">
+			
+			Emergency Contact Name(Optional):
+				<p:inputText value="#{studentbean.s.eName2}"
+							 id="ename2">>
+				</p:inputText>
+				
+				
+				Emergency Contact Number(Optional):
+				<p:inputMask mask="(999) 999-9999" 
+						 value="#{studentbean.s.eNo2}"
+						 id="eno2">
+					 
+				</p:inputMask>
+				
+				
+				Emergency Contact Email Id(Optional):
+				<p:inputText value="#{studentbean.s.eId2}"
+						 id="eid2"> 
+				
+				
+				</p:inputText>
+				
+				
+			
+			
+			
+			</h:panelGrid>
+			
+			<p>What did you like most about the campus?</p>
+			<p:selectManyCheckbox value="#{studentbean.s.like}"
+								  id="like">
+				<f:selectItem itemValue="students" itemLabel="Students"></f:selectItem>
+				<f:selectItem itemValue="location" itemLabel="Location"></f:selectItem>
+				<f:selectItem itemValue="campus" itemLabel="Campus"></f:selectItem>
+				<f:selectItem itemValue="atmosphere" itemLabel="Atmosphere"></f:selectItem>
+				<f:selectItem itemValue="dormrooms" itemLabel="Dorm Rooms"></f:selectItem>
+				<f:selectItem itemValue="sports" itemLabel="Sports"></f:selectItem>
+			</p:selectManyCheckbox>
+			
+			<p>How did you become interested in the university?</p>
+			<p:selectOneRadio value="#{studentbean.s.interest}"
+							  id="interest">
+				<f:selectItem itemValue="friends" itemLabel="Friends"></f:selectItem>
+				<f:selectItem itemValue="television" itemLabel="Television"></f:selectItem>
+				<f:selectItem itemValue="internet" itemLabel="Internet"></f:selectItem>
+				<f:selectItem itemValue="other" itemLabel="Other"></f:selectItem>
+			</p:selectOneRadio>
+			
+			<p>Select the likelihood of you recommending this school to other prospective students</p>
+			<p:autoComplete id="likelihood" value="#{studentbean.s.likelihood}"
+							completeMethod="#{studentbean.s.completeLikelihood}"
+							required="true"
+							forceSelection="true">
+			</p:autoComplete>
+			
+			<br></br><p>Raffle*:(Enter at least ten comma separated numbers ranging from 1 through 100.)</p>
+			<p:inputTextarea value="#{studentbean.s.raffle}"
+							 id="Raffle" cols="50" rows="5" required="true"
+							 requiredMessage="Enter at least ten comma separated numbers ranging from 1 through 100.">
+			</p:inputTextarea>
+			
+			
+			
+			<p>Additional Comments:</p>
+			<p:inputTextarea  value="#{studentbean.s.comments}" id="comments" cols="50" rows="5"></p:inputTextarea>
+			
+			<br></br>
+			<p:commandButton value="Submit" type="submit" action="#{studentbean.surveyData}" ajax="false"></p:commandButton>
+			<p:commandButton value="Cancel" type="reset" ajax="false"></p:commandButton>
+			
+			
+		</h:form>
+	</h:body>
+
+
+</html>

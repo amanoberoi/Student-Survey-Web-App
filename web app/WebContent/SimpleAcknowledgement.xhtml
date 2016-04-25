@@ -1,0 +1,41 @@
+<!-- This is the simple acknowledgement jsf page. -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head><title>Simple Acknowledgement</title>
+<style type="text/css">
+body {
+    background-color: #ccffff;
+}
+
+h1 {
+    color: blue;
+    
+}
+</style>
+</h:head> 
+<body> 
+
+<h1>Thank you for completing the form.</h1>
+<p:panelGrid columns="2">
+	First Name: #{studentbean.s.firstName} <br></br>
+	
+	Last Name: #{studentbean.s.lastName} <br></br>
+	
+	Mean: #{studentbean.wr.mean} <br></br>
+	
+	Standard Deviation: #{studentbean.wr.stddev} <br></br>
+	
+	You did not win the movie tickets. Better luck next time!!
+</p:panelGrid>
+<h:form>
+	<p:commandLink value="Go back to homepage" action="home"></p:commandLink>
+	<br></br>
+	<p:commandLink value="List of Surveys" action="#{studentbean.AlphaOrder}"/>
+</h:form>
+</body> 
+</html>

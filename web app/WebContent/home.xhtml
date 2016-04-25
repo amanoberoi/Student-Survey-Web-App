@@ -1,0 +1,28 @@
+<!-- This is the homepage that includes links to the survey page and the list of survey data. -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<title>Home</title>
+</h:head>
+<h:body>
+
+<h2 align="center"> Welcome to the Assignment 4 homepage </h2>
+<center>
+<h:form>
+
+<p:commandLink value="Take the Survey" action="#{studentbean.sessDelete}"/><br></br>
+<p:commandLink value="List of Surveys" action="#{studentbean.AlphaOrder}"/><br/>
+<p:commandLink value="Search the Surveys" action="#{studentbean.sessSearchDelete}"/>
+
+</h:form>
+</center>
+
+</h:body>
+</html>

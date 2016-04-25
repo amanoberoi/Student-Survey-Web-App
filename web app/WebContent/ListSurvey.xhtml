@@ -1,0 +1,123 @@
+<!-- This page is used to display the contents of the survey data collected. -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<title>List of Survey Records</title>
+</h:head> 
+<h:body> 
+	
+	<p:dataTable value="#{studentbean.allSurveys}" var="s" border="1">
+	
+		<p:column>
+			<f:facet name="header">First Name</f:facet>
+			#{s.firstName}
+		</p:column>
+		
+		<p:column>
+			<f:facet name="header">Last Name</f:facet>
+			#{s.lastName}
+		</p:column>
+		
+		<p:column>
+			<f:facet name="header">Street Address</f:facet>
+			#{s.streetAddress}
+		</p:column>
+		
+		<p:column>
+			<f:facet name="header">City</f:facet>
+			#{s.city}
+		</p:column>
+		
+		<p:column>
+			<f:facet name="header">State</f:facet>
+			#{s.state}
+		</p:column>
+		
+		<p:column>
+			<f:facet name="header">ZIP</f:facet>
+			#{s.zip}
+		</p:column>
+		
+		<p:column>
+			<f:facet name="header">Contact Number</f:facet>
+			#{s.contactNumber}
+		</p:column>
+		
+		<p:column>
+			<f:facet name="header">Email</f:facet>
+			#{s.email}
+		</p:column>
+		
+		<p:column>
+			<f:facet name="header">Date Of Survey</f:facet>
+			#{s.dateOfSurvey}
+		</p:column>
+		
+		<p:column>
+			<f:facet name="header">Like</f:facet>
+			#{s.temp}
+		</p:column>
+		
+		<p:column>
+			<f:facet name="header">Interest</f:facet>
+			#{s.interest}
+		</p:column>
+		
+		<p:column>
+			<f:facet name="header">Likelihood</f:facet>
+			#{s.likelihood}
+		</p:column>
+		
+		<p:column>
+			<f:facet name="header">Raffle</f:facet>
+			#{s.raffle}
+		</p:column>
+		
+		<p:column>
+			<f:facet name="header">Comments</f:facet>
+			#{s.comments}
+		</p:column>
+		
+		<p:column>
+			<f:facet name="header">Primary Emergency Contact Name</f:facet>
+			#{s.eName1}
+		</p:column>
+		<p:column>
+			<f:facet name="header">Primary Emergency Contact Email</f:facet>
+			#{s.eId1}
+		</p:column>
+		<p:column>
+			<f:facet name="header">Primary Emergency Contact Number</f:facet>
+			#{s.eNo1}
+		</p:column>
+		
+		<p:column>
+			<f:facet name="header">Secondary Emergency Contact Name</f:facet>
+			#{s.eName2}
+		</p:column>
+		<p:column>
+			<f:facet name="header">Secondary Emergency Contact Email</f:facet>
+			#{s.eId2}
+		</p:column>
+		<p:column>
+			<f:facet name="header">Secondary Emergency Contact Number</f:facet>
+			#{s.eNo2}
+		</p:column>
+		
+	</p:dataTable>
+
+
+<h:form>
+	<p:commandLink value="Go back to homepage" action="home"></p:commandLink>
+	<br></br>
+	<p:commandLink value="List of Surveys" action="#{studentbean.AlphaOrder}"/>
+	
+</h:form>
+
+</h:body> 
+</html>

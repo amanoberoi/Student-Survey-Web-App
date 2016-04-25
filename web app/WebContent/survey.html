@@ -1,0 +1,112 @@
+<!--  This file contains the survey form that allows prospective students to provide feedback about their campus visits.
+It contains many different types of inputs (textfields,radio buttons,checkboxes, drop down menus) and is designed such that its easy for the user to fill out a simple form. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+body {
+    background-color: #ccffff;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+p {
+    font-family: "Times New Roman";
+    font-size: 20px;
+}
+div {
+    background-color: #b0c4de;
+}
+form {
+display: table; 
+}
+.b {
+width: 50%;
+}
+.container {
+        width: 50%;
+        clear: both;
+    }
+    .container input {
+        width: 90%;
+        clear: both;
+    }
+
+</style>
+<meta charset="ISO-8859-1">
+<title>Survey Page</title>
+</head>
+<body>
+
+<h1> Welcome to the survey page </h1>
+
+<div class="container">
+<form>
+
+ <h2>Survey Form :</h2>
+ Note: * indicates required fields<br><br>
+ 
+ First Name*:
+ <input type="text" name="fname" required><br>
+Last Name*: 
+<input type="text" name="lname" required><br>
+Street Address*: 
+<input type="text" name="address" required><br>
+City*: 
+<input type="text" name="city" required><br>
+State*: 
+<input type="text" name="state" required><br>
+ZIP*: 
+<input type="number" name="zip" required><br>
+Tel. No*: 
+<input type="tel" name="telno" required><br>
+Email*: 
+<input type="email" name="email" required><br>
+Date of survey*: 
+<input type="date" name="date" placeholder="mm-dd-yyyy" required><br><br>
+</form>
+</div>
+<div class="b">
+<form>
+ What did you like most about the campus??? <br>
+<input type="checkbox" name="like" value="Students">Students<br>
+<input type="checkbox" name="like" value="Location">Location<br>
+<input type="checkbox" name="like" value="Campus">Campus<br>
+<input type="checkbox" name="like" value="Atmosphere">Atmosphere<br>
+<input type="checkbox" name="like" value="Dorm Rooms">Dorm Rooms<br>
+<input type="checkbox" name="like" value="Sports">Sports<br><br>
+
+How did you become interested in the university??? <br>
+<input type="radio" name="interest" value="Friends">Friends<br>
+<input type="radio" name="interest" value="Television">Television<br>
+<input type="radio" name="interest" value="Internet">Internet<br>
+<input type="radio" name="interest" value="Other">Other<br><br>
+
+What is the likelihood of you recommending<br> 
+this school to other prospective students???<br>
+<select>
+	<option value="Very Likely">Very Likely</option>
+	<option value="Likely">Likely</option>
+	<option value="Unlikely">Unlikely</option>
+</select> <br><br>
+
+Raffle: <br>
+<textarea rows="2" cols="40" placeholder="Enter 10 digits from 1 to 100 separated by commas"></textarea><br><br>
+
+Additional Comments: <br>
+<textarea rows="5" cols="40" placeholder="Please enter your comments here."></textarea><br><br>
+
+
+<input type="submit" value="Submit">
+<input type="reset" value="Cancel">
+
+</form>
+</div>
+
+
+</body>
+</html>
